@@ -13,5 +13,11 @@ public class Laser : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.up * _speed * Time.deltaTime);
+        float thresholdLimit = 8f;
+
+        if (transform.position.y > thresholdLimit)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
