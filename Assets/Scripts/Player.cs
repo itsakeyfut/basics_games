@@ -21,9 +21,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && Time.time > _canFire)
         {
-            _canFire = Time.time + _fireRate;
-            float offset = 0.8f;
-            Instantiate(_laserPrefab, transform.position + new Vector3(0, offset, 0), Quaternion.identity);
+            FireLaser();
         }
     }
 
@@ -48,5 +46,12 @@ public class Player : MonoBehaviour
         {
             transform.position = new Vector3(verticalLimit, transform.position.y, 0);
         }
+    }
+
+    void FireLaser()
+    {
+        _canFire = Time.time + _fireRate;
+        float offset = 0.8f;
+        Instantiate(_laserPrefab, transform.position + new Vector3(0, offset, 0), Quaternion.identity);
     }
 }
